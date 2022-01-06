@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3du-Td-lM4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AXe-Br-4Jh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,6 @@
         <!--Home-->
         <scene sceneID="n05-QB-XK9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iDu-41-v6F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="h73-gc-ieC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bOJ-o2-PXI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
@@ -34,13 +33,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="aIX-lG-ksb"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iDu-41-v6F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="67" y="587"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Wdm-ak-M1H">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgt-Q4-dza" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="3du-Td-lM4" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cGb-kJ-8pS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -54,13 +53,13 @@
                         <segue destination="QCe-lY-Fus" kind="relationship" relationship="viewControllers" id="A0v-Q0-TEf"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgt-Q4-dza" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="896" y="-259"/>
         </scene>
         <!--Watchlist-->
         <scene sceneID="ZDW-2s-uOX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c2k-YV-bz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="sjK-at-ahv" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jQE-SI-dry">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
@@ -104,14 +103,14 @@
                         <segue destination="AXe-Br-4Jh" kind="presentation" modalPresentationStyle="fullScreen" id="XPv-OJ-EEw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c2k-YV-bz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="896" y="587"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Crypto View Controller-->
         <scene sceneID="BnK-Ca-HTK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f8G-FT-uzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="AXe-Br-4Jh" sceneMemberID="viewController">
+                <viewController id="AXe-Br-4Jh" customClass="DetailCryptoViewController" customModule="Cryptomate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EP8-9N-Qin">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,13 +135,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="7bw-7S-mMt"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f8G-FT-uzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="896" y="1286"/>
         </scene>
         <!--News-->
         <scene sceneID="1fK-MO-RN5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O3t-a3-Mx6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="QCe-lY-Fus" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rnd-ea-1rY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
@@ -165,6 +164,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="News" image="news" id="cCc-l3-0W9"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O3t-a3-Mx6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1710" y="587"/>
         </scene>
