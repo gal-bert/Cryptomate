@@ -1,5 +1,5 @@
 //
-//  DetailCryptoViewController.swift
+//  BeritaViewController.swift
 //  Cryptomate
 //
 //  Created by Ivan Su on 1/6/22.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class DetailCryptoViewController: UIViewController {
+class BeritaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let urlString = "https://api.coingecko.com/api/v3/coins/bitcoin"
+        let urlString = "https://newsapi.org/v2/everything?q=crypto&from=2021-12-20&apiKey=c0d5252381e04396bb6a5f49d87bd9e3"
         let url = URL(string: urlString)!
         
         let req = URLRequest(url: url)
@@ -22,26 +22,20 @@ class DetailCryptoViewController: UIViewController {
             if err == nil {
                 do {
                     let root = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any]
+                    let arr = root["articles"] as! Array<Any>
                     
-                    // ["id"]
-                    // ["name"]
-                    // ["symbol"]
-                    // ["description"]["en"]
-                    // ["links"]["homepage"][0]
-                    // ["image"]["large"]
-                    // ["market_cap_rank"]
-                    // ["market_data"]["current_price"]["usd"]
-                    // ["market_data"]["ath"]["usd"]
-                    // ["market_data"]["ath_change_percentage"]["usd"]
-                    // ["market_data"]["atl"]["usd"]
-                    // ["market_data"]["atl_change_percentage"]["usd"]
-                    // ["market_data"]["market_cap"]["usd"]
-                    // ["market_data"]["high_24h"]["usd"]
-                    // ["market_data"]["low_24h"]["usd"]
-                    // ["market_data"]["price_change_24h"]
-                    // ["market_data"]["price_change_percentage_24h"]
+                    for item in arr {
+                        let i = item as! [String: Any]
+                        
+//                        print("--> \(i)")
+//                        print("-->> \(i["title"]!)")
+//                        print("-->> \(i["description"]!)")
+//                        print("-->> \(i["publishedAt"]!)")
+//                        print("-->> \(i["author"]!)")
+//                        print("-->> \(i["urlToImage"]!)")
+//                        print("-->> \(i["url"]!)")
+                    }
                     
-                    print("id: \(root["id"] as! String)")
                     
                 } catch {
                     print("Error JSON Serialization")
