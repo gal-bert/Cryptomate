@@ -14,6 +14,7 @@
 		0C789BB5276F3D8800FF2997 /* Cryptomate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BB3276F3D8800FF2997 /* Cryptomate.xcdatamodeld */; };
 		0C789BB7276F3D8A00FF2997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C789BB6276F3D8A00FF2997 /* Assets.xcassets */; };
 		0C789BBA276F3D8A00FF2997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C789BB8276F3D8A00FF2997 /* LaunchScreen.storyboard */; };
+		252D96202787EEC6002C4419 /* Berita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D961F2787EEC6002C4419 /* Berita.swift */; };
 		256DBE442787497700AD9B89 /* BeritaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256DBE432787497700AD9B89 /* BeritaViewController.swift */; };
 		259CF85D2787131E00EC6781 /* DetailCryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		0C789BB6276F3D8A00FF2997 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C789BB9276F3D8A00FF2997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C789BBB276F3D8A00FF2997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		252D961F2787EEC6002C4419 /* Berita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Berita.swift; sourceTree = "<group>"; };
 		256DBE432787497700AD9B89 /* BeritaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeritaViewController.swift; sourceTree = "<group>"; };
 		259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCryptoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 				0C789BB3276F3D8800FF2997 /* Cryptomate.xcdatamodeld */,
 				259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */,
 				256DBE432787497700AD9B89 /* BeritaViewController.swift */,
+				252D961F2787EEC6002C4419 /* Berita.swift */,
 			);
 			path = Cryptomate;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				259CF85D2787131E00EC6781 /* DetailCryptoViewController.swift in Sources */,
 				256DBE442787497700AD9B89 /* BeritaViewController.swift in Sources */,
 				0C789BAD276F3D8800FF2997 /* SceneDelegate.swift in Sources */,
+				252D96202787EEC6002C4419 /* Berita.swift in Sources */,
 				0C789BB5276F3D8800FF2997 /* Cryptomate.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
