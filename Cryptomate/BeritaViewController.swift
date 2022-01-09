@@ -26,7 +26,8 @@ class BeritaViewController: UIViewController, UITableViewDataSource, UITableView
         
         let req = URLRequest(url: url)
         let session = URLSession.shared
-        let detailTask = session.dataTask(with: req) { [self] data, res, err in
+        let detailTask = session.dataTask(with: req) {
+            [self] data, res, err in
             if err == nil {
                 do {
                     let root = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any]
@@ -48,18 +49,7 @@ class BeritaViewController: UIViewController, UITableViewDataSource, UITableView
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
-                        
-                        
-//                        print("--> \(i)")
-//                        print("-->> \(i["title"]!)")
-//                        print("-->> \(i["description"]!)")
-//                        print("-->> \(i["publishedAt"]!)")
-//                        print("-->> \(i["author"]!)")
-//                        print("-->> \(i["urlToImage"]!)")
-//                        print("-->> \(i["url"]!)")
                     }
-                    
-                    
                 } catch {
                     print("Error JSON Serialization")
                 }
@@ -75,8 +65,15 @@ class BeritaViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "beritaCell")!
         let berita = beritaList[indexPath.row]
         
+        // Format date from String
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM, YYYY - HH:MM"
+        let isoformat = ISO8601DateFormatter()
+        let date = isoformat.date(from: berita.publishedAt)
+        let strDate = dateFormatter.string(from: date!)
+        
         cell.textLabel?.text = berita.title
-        cell.detailTextLabel?.text = "Published: \(berita.publishedAt)"
+        cell.detailTextLabel?.text = "Published: \(String(describing: strDate))"
         
         return cell
     }
