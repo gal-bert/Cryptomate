@@ -53,6 +53,18 @@
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dsB-pJ-RKF">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7k-Lc-10G">
+                                                    <rect key="frame" x="20" y="20" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Q7k-Lc-10G" firstAttribute="top" secondItem="dsB-pJ-RKF" secondAttribute="top" constant="20" id="5Jm-SL-WfO"/>
+                                                <constraint firstItem="Q7k-Lc-10G" firstAttribute="leading" secondItem="dsB-pJ-RKF" secondAttribute="leading" constant="20" id="jA5-Sd-eLC"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
@@ -69,19 +81,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lze-b7-PFi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                                    <rect key="frame" x="10" y="10" width="45" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Lze-b7-PFi" secondAttribute="height" multiplier="1:1" id="IVK-gf-Sim"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2F-cc-1KP">
-                                                    <rect key="frame" x="75" y="10" width="53" height="21"/>
+                                                    <rect key="frame" x="65" y="10" width="53" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFe-eO-CKH">
-                                                    <rect key="frame" x="75" y="34" width="33" height="21"/>
+                                                    <rect key="frame" x="65" y="34" width="33" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -103,14 +115,14 @@
                                                 <constraint firstItem="W2F-cc-1KP" firstAttribute="leading" secondItem="Lze-b7-PFi" secondAttribute="trailing" constant="10" id="IkG-ds-U10"/>
                                                 <constraint firstAttribute="trailing" secondItem="apF-FK-7iI" secondAttribute="trailing" constant="10" id="Jqn-pL-hEh"/>
                                                 <constraint firstItem="GFe-eO-CKH" firstAttribute="leading" secondItem="Lze-b7-PFi" secondAttribute="trailing" constant="10" id="Nlq-5b-vsn"/>
-                                                <constraint firstItem="Lze-b7-PFi" firstAttribute="top" secondItem="bDz-VK-uIf" secondAttribute="top" id="Pz6-80-hv0"/>
+                                                <constraint firstItem="Lze-b7-PFi" firstAttribute="top" secondItem="bDz-VK-uIf" secondAttribute="top" constant="10" id="Pz6-80-hv0"/>
                                                 <constraint firstAttribute="bottom" secondItem="GFe-eO-CKH" secondAttribute="bottom" constant="10" id="VOw-gD-xMz"/>
                                                 <constraint firstAttribute="trailing" secondItem="mGe-zl-BP6" secondAttribute="trailing" constant="10" id="Vkg-Cq-3F0"/>
                                                 <constraint firstItem="apF-FK-7iI" firstAttribute="top" secondItem="bDz-VK-uIf" secondAttribute="top" constant="10" id="iJg-mR-5BZ"/>
-                                                <constraint firstItem="Lze-b7-PFi" firstAttribute="leading" secondItem="bDz-VK-uIf" secondAttribute="leading" id="lC6-wJ-NwF"/>
                                                 <constraint firstAttribute="bottom" secondItem="mGe-zl-BP6" secondAttribute="bottom" constant="10" id="nZl-fF-X2U"/>
                                                 <constraint firstItem="W2F-cc-1KP" firstAttribute="top" secondItem="bDz-VK-uIf" secondAttribute="top" constant="10" id="no8-cc-vsa"/>
-                                                <constraint firstAttribute="bottom" secondItem="Lze-b7-PFi" secondAttribute="bottom" id="smz-WV-KUA"/>
+                                                <constraint firstItem="Lze-b7-PFi" firstAttribute="leading" secondItem="bDz-VK-uIf" secondAttribute="leading" constant="10" id="oMe-tw-DdK"/>
+                                                <constraint firstAttribute="bottom" secondItem="Lze-b7-PFi" secondAttribute="bottom" constant="10" id="smz-WV-KUA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
