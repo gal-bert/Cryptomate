@@ -31,7 +31,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     let results = root as! [[String:Any]]
                     
                     for result in results {
-//                        print(result["id"])
                         
                         var coin = Coin(
                             id: result["id"] as! String,
