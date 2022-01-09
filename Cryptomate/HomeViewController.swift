@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let req = URLRequest(url: url)
         
         let session = URLSession.shared
-        let moviesTask = session.dataTask(with: req) { data, response, error in
+        let task = session.dataTask(with: req) { data, response, error in
             if error == nil {
                 do {
                     let root = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [Any]
@@ -54,12 +54,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         let imageTask = session.dataTask(with: imageURL) { data, response, error in
 
                             if error == nil {
-                                coin.imageThumb = UIImage(data: data!)
+                                self.arrCoins[row].imageThumb = UIImage(data: data!)
                                 let indexPath = IndexPath(row: row, section: 0)
                                 DispatchQueue.main.async {
                                     self.tableView.reloadRows(at: [indexPath], with: .fade)
                                 }
                             }
+                            
 
                         }
                         imageTask.resume()
@@ -76,7 +77,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 print(error!)
             }
         }
-        moviesTask.resume()
+        task.resume()
         
     } //didLoad
     
@@ -106,6 +107,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.change.text = "\(String(format: "%.2f", coin.percentChange))%"
         
         cell.coinImage.image = coin.imageThumb
+
+//        cell.coinImage.image = UIImage(named: "news")
         return cell
     }
 
