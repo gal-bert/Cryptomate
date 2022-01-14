@@ -193,6 +193,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Use data from the view controller which initiated the unwind segue
     }
     
-    //TODO: Dismiss keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func searchDidEndOnExit(_ sender: Any) {
+        
+    }
+    
 }
 
