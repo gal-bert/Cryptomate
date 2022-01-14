@@ -21,6 +21,7 @@ class DetailCryptoViewController: UIViewController {
     @IBOutlet weak var imageLogo: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var coinId:String?
     
     //TODO: Add to core data
@@ -82,7 +83,6 @@ class DetailCryptoViewController: UIViewController {
                                 self.imageLogo.image = UIImage(data: data!)
                             }
                         }
-                        
 
                     }
                     imageTask.resume()
@@ -116,5 +116,17 @@ class DetailCryptoViewController: UIViewController {
         detailTask.resume()
     }
     
-
+    @IBAction func saveToWatchlist(_ sender: Any) {
+        
+        do{
+            let context = appDelegate.persistentContainer.viewContext
+            let watchlist = Watchlist(context: context)
+            watchlist.coinId = coinId
+            context.insert(watchlist)
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }
