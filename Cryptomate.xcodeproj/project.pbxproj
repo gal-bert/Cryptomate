@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0C0D429F27916A5800E4CB59 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D429E27916A5800E4CB59 /* Helper.swift */; };
+		0C0D42A22791736F00E4CB59 /* Watchlist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D42A02791736F00E4CB59 /* Watchlist+CoreDataClass.swift */; };
+		0C0D42A32791736F00E4CB59 /* Watchlist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D42A12791736F00E4CB59 /* Watchlist+CoreDataProperties.swift */; };
 		0C789BAB276F3D8800FF2997 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BAA276F3D8800FF2997 /* AppDelegate.swift */; };
 		0C789BAD276F3D8800FF2997 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BAC276F3D8800FF2997 /* SceneDelegate.swift */; };
 		0C789BAF276F3D8800FF2997 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BAE276F3D8800FF2997 /* HomeViewController.swift */; };
@@ -15,7 +17,6 @@
 		0C789BB5276F3D8800FF2997 /* Cryptomate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BB3276F3D8800FF2997 /* Cryptomate.xcdatamodeld */; };
 		0C789BB7276F3D8A00FF2997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C789BB6276F3D8A00FF2997 /* Assets.xcassets */; };
 		0C789BBA276F3D8A00FF2997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C789BB8276F3D8A00FF2997 /* LaunchScreen.storyboard */; };
-		0C7E1A56278B331A00686323 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7E1A55278B331A00686323 /* DetailViewController.swift */; };
 		0CA9D5C8278B0D10009CD4E5 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D5C7278B0D10009CD4E5 /* Coin.swift */; };
 		0CA9D5CA278B1D3C009CD4E5 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D5C9278B1D3C009CD4E5 /* HomeTableViewCell.swift */; };
 		252D96202787EEC6002C4419 /* Berita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D961F2787EEC6002C4419 /* Berita.swift */; };
@@ -27,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		0C0D429E27916A5800E4CB59 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		0C0D42A02791736F00E4CB59 /* Watchlist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Watchlist+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0C0D42A12791736F00E4CB59 /* Watchlist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Watchlist+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0C789BA7276F3D8800FF2997 /* Cryptomate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptomate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C789BAA276F3D8800FF2997 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C789BAC276F3D8800FF2997 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +39,6 @@
 		0C789BB6276F3D8A00FF2997 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C789BB9276F3D8A00FF2997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C789BBB276F3D8A00FF2997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C7E1A55278B331A00686323 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0CA9D5C7278B0D10009CD4E5 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		0CA9D5C9278B1D3C009CD4E5 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		252D961F2787EEC6002C4419 /* Berita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Berita.swift; sourceTree = "<group>"; };
@@ -60,6 +62,8 @@
 		0C789B9E276F3D8800FF2997 = {
 			isa = PBXGroup;
 			children = (
+				0C0D42A02791736F00E4CB59 /* Watchlist+CoreDataClass.swift */,
+				0C0D42A12791736F00E4CB59 /* Watchlist+CoreDataProperties.swift */,
 				0C789BA9276F3D8800FF2997 /* Cryptomate */,
 				0C789BA8276F3D8800FF2997 /* Products */,
 			);
@@ -84,7 +88,6 @@
 				259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */,
 				0C789BAC276F3D8800FF2997 /* SceneDelegate.swift */,
 				0C789BAE276F3D8800FF2997 /* HomeViewController.swift */,
-				0C7E1A55278B331A00686323 /* DetailViewController.swift */,
 				0CA9D5C9278B1D3C009CD4E5 /* HomeTableViewCell.swift */,
 				0C789BB6276F3D8A00FF2997 /* Assets.xcassets */,
 				0C789BB3276F3D8800FF2997 /* Cryptomate.xcdatamodeld */,
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C789BAF276F3D8800FF2997 /* HomeViewController.swift in Sources */,
+				0C0D42A32791736F00E4CB59 /* Watchlist+CoreDataProperties.swift in Sources */,
 				0C789BAB276F3D8800FF2997 /* AppDelegate.swift in Sources */,
 				E913C0CA278C15A400C0AF78 /* TrendingCollectionViewCell.swift in Sources */,
 				259CF85D2787131E00EC6781 /* DetailCryptoViewController.swift in Sources */,
@@ -176,8 +180,8 @@
 				0C789BAD276F3D8800FF2997 /* SceneDelegate.swift in Sources */,
 				E913C0C8278C00B500C0AF78 /* TrendingTableViewCell.swift in Sources */,
 				252D96202787EEC6002C4419 /* Berita.swift in Sources */,
+				0C0D42A22791736F00E4CB59 /* Watchlist+CoreDataClass.swift in Sources */,
 				0CA9D5CA278B1D3C009CD4E5 /* HomeTableViewCell.swift in Sources */,
-				0C7E1A56278B331A00686323 /* DetailViewController.swift in Sources */,
 				0C0D429F27916A5800E4CB59 /* Helper.swift in Sources */,
 				0CA9D5C8278B0D10009CD4E5 /* Coin.swift in Sources */,
 				0C789BB5276F3D8800FF2997 /* Cryptomate.xcdatamodeld in Sources */,

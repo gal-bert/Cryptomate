@@ -2,17 +2,23 @@
 //  TrendingTableViewCell.swift
 //  Cryptomate
 //
-//  Created by Thomas Ryouga Tanaka on 10/01/22.
+//  Created by Kevin Putra Yonathan on 10/01/22.
 //
 
 import UIKit
+
+protocol TrendingTableViewDelegate {
+    func onClick(id:String)
+}
+
 
 class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var trendingCollectionView: UICollectionView!
     
     var arrTrendings = [Coin]()
-    
+    var trendingTableViewDelegate:TrendingTableViewDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         trendingCollectionView.dataSource = self
@@ -157,4 +163,13 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         return CGSize(width: 135, height: 115)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let id = arrTrendings[indexPath.row].id
+        trendingTableViewDelegate?.onClick(id: id)
+    }
+    
+    
+    
 }
+
+

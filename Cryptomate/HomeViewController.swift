@@ -7,15 +7,20 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, TrendingTableViewDelegate {
+   
 
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var trendingTableView: UITableView!
+    @IBOutlet weak var searchTextField: UITextField!
     
     var arrCoins = [Coin]()
+    var temp:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         self.homeTableView.rowHeight = 65
         self.trendingTableView.rowHeight = 119
@@ -118,18 +123,74 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             cell.coinImage.image = coin.imageThumb
 
-    //        cell.coinImage.image = UIImage(named: "news")
             return cell
         }
         
         if tableView == trendingTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "trendingTableViewCell") as! TrendingTableViewCell
-            
+            cell.trendingTableViewDelegate = self
             return cell
         }
         
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableView == homeTableView {
+            temp = arrCoins[indexPath.row].id
+            performSegue(withIdentifier: "toDetailSegue", sender: self)
+        }
+                    
+    }
+    
+    @IBAction func search(_ sender: Any) {
+        
+        let coinId = searchTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let urlString = "https://api.coingecko.com/api/v3/coins/\(coinId!)"
+        let url = URL(string: urlString)!
+        
+        let req = URLRequest(url: url)
+        let session = URLSession.shared
+        let detailTask = session.dataTask(with: req) { data, res, err in
+            if err == nil {
+                let response = res as? HTTPURLResponse
+                let statusCode = response?.statusCode
+                
+                if statusCode! == 404 || coinId == "" {
+                    DispatchQueue.main.async {
+                        self.present(Helper.pushAlert(title: "Oops!", message: "Coin not found!"), animated: true, completion: nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.temp = coinId
+                        self.performSegue(withIdentifier: "toDetailSegue", sender: self)
+                    }
+                }
 
+            } else {
+                print(err!.localizedDescription)
+                self.present(Helper.pushAlert(title: "Oops!", message: err!.localizedDescription), animated: true, completion: nil)
+            }
+        }
+        detailTask.resume()
+    }
+    
+    func onClick(id: String) {
+        temp = id
+        performSegue(withIdentifier: "toDetailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailSegue" {
+            let destination = segue.destination as! DetailCryptoViewController
+            destination.coinId = temp
+        }
+    }
+    
+    @IBAction func unwindToHomepage(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
 }
 

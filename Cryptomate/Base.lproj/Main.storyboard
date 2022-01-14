@@ -33,6 +33,9 @@
                                 <rect key="frame" x="241" y="54" width="69" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Search"/>
+                                <connections>
+                                    <action selector="search:" destination="h73-gc-ieC" eventType="touchUpInside" id="u2P-Jm-lYt"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jf0-Iv-mTB">
                                 <rect key="frame" x="0.0" y="329" width="320" height="190"/>
@@ -244,7 +247,9 @@
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="aIX-lG-ksb"/>
                     <connections>
                         <outlet property="homeTableView" destination="jf0-Iv-mTB" id="b6w-Bj-ozN"/>
+                        <outlet property="searchTextField" destination="U6a-Lx-JZZ" id="lEh-qP-agi"/>
                         <outlet property="trendingTableView" destination="aOJ-MV-gSM" id="y87-Tx-2An"/>
+                        <segue destination="AXe-Br-4Jh" kind="presentation" identifier="toDetailSegue" modalPresentationStyle="fullScreen" id="g7g-0s-xmh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iDu-41-v6F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -333,25 +338,42 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="1rc-T6-anZ">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="JiF-vt-pWs"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="JiF-vt-pWs">
+                                            <connections>
+                                                <segue destination="VFF-9F-2uL" kind="unwind" unwindAction="unwindToHomepage:" id="JBB-Re-snH"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Item" image="heart" id="1pN-b8-v8U"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLk-uf-yBz">
+                                <rect key="frame" x="20" y="64" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oIc-Pc-lEx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Du9-oh-00W" firstAttribute="trailing" secondItem="oIc-Pc-lEx" secondAttribute="trailing" id="2Bv-QZ-Nn0"/>
                             <constraint firstItem="Du9-oh-00W" firstAttribute="top" secondItem="oIc-Pc-lEx" secondAttribute="top" id="4sx-or-BLg"/>
+                            <constraint firstItem="pLk-uf-yBz" firstAttribute="top" secondItem="Du9-oh-00W" secondAttribute="bottom" constant="20" id="ISC-7M-pVz"/>
+                            <constraint firstItem="pLk-uf-yBz" firstAttribute="leading" secondItem="oIc-Pc-lEx" secondAttribute="leading" constant="20" id="MkG-e1-thR"/>
+                            <constraint firstItem="oIc-Pc-lEx" firstAttribute="trailing" secondItem="pLk-uf-yBz" secondAttribute="trailing" constant="20" id="O0f-7X-gmw"/>
                             <constraint firstItem="Du9-oh-00W" firstAttribute="leading" secondItem="oIc-Pc-lEx" secondAttribute="leading" id="Xa6-ch-h4X"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7bw-7S-mMt"/>
+                    <connections>
+                        <outlet property="coinIdLabel" destination="pLk-uf-yBz" id="2S7-b3-tp9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8G-FT-uzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="VFF-9F-2uL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="894" y="1377"/>
+            <point key="canvasLocation" x="443" y="1548"/>
         </scene>
         <!--News-->
         <scene sceneID="1fK-MO-RN5">
@@ -420,6 +442,9 @@
             <point key="canvasLocation" x="1708.6956521739132" y="585.9375"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XPv-OJ-EEw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" width="30" height="30"/>
         <image name="home" width="30" height="30"/>
