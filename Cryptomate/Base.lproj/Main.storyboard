@@ -35,7 +35,7 @@
                                 <buttonConfiguration key="configuration" style="tinted" title="Search"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jf0-Iv-mTB">
-                                <rect key="frame" x="0.0" y="448" width="320" height="71"/>
+                                <rect key="frame" x="0.0" y="329" width="320" height="190"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="65" id="FOt-Gf-JeH" customClass="HomeTableViewCell" customModule="Cryptomate" customModuleProvider="target">
@@ -111,8 +111,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aOJ-MV-gSM">
-                                <rect key="frame" x="0.0" y="154" width="320" height="237"/>
+                                <rect key="frame" x="0.0" y="154" width="320" height="119"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="119" id="qCh-oI-l6q"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="trendingTableViewCell" rowHeight="119" id="ccG-fQ-GPC" customClass="TrendingTableViewCell" customModule="Cryptomate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="320" height="119"/>
@@ -207,9 +210,8 @@
                                     <outlet property="delegate" destination="h73-gc-ieC" id="dpt-PF-QcG"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Market" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cse-nt-ujE">
-                                <rect key="frame" x="16" y="401" width="110" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Market" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVK-It-HTa">
+                                <rect key="frame" x="10" y="283" width="90" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -218,24 +220,25 @@
                         <viewLayoutGuide key="safeArea" id="rao-ff-bPb"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jf0-Iv-mTB" firstAttribute="bottom" secondItem="rao-ff-bPb" secondAttribute="bottom" id="0Jt-BU-hu2"/>
+                            <constraint firstItem="jf0-Iv-mTB" firstAttribute="trailing" secondItem="rao-ff-bPb" secondAttribute="trailing" id="9Tm-ah-saG"/>
+                            <constraint firstItem="jf0-Iv-mTB" firstAttribute="bottom" secondItem="rao-ff-bPb" secondAttribute="bottom" id="9Tn-Dl-7oT"/>
+                            <constraint firstItem="jf0-Iv-mTB" firstAttribute="leading" secondItem="rao-ff-bPb" secondAttribute="leading" id="B8U-L2-hxE"/>
+                            <constraint firstItem="aOJ-MV-gSM" firstAttribute="leading" secondItem="rao-ff-bPb" secondAttribute="leading" id="CZF-lk-ocL"/>
                             <constraint firstItem="oNP-Er-4jL" firstAttribute="top" secondItem="2GO-Au-LwN" secondAttribute="bottom" constant="10" id="G1f-v8-Nvf"/>
                             <constraint firstItem="U6a-Lx-JZZ" firstAttribute="top" secondItem="2GO-Au-LwN" secondAttribute="bottom" constant="10" id="GZX-c6-Fdn"/>
-                            <constraint firstItem="aOJ-MV-gSM" firstAttribute="trailing" secondItem="rao-ff-bPb" secondAttribute="trailing" id="H0j-2r-ZWF"/>
                             <constraint firstItem="2GO-Au-LwN" firstAttribute="leading" secondItem="bOJ-o2-PXI" secondAttribute="leading" id="HoJ-r0-zJN"/>
                             <constraint firstItem="rao-ff-bPb" firstAttribute="trailing" secondItem="oNP-Er-4jL" secondAttribute="trailing" constant="10" id="I7s-8M-W70"/>
-                            <constraint firstItem="aOJ-MV-gSM" firstAttribute="top" secondItem="Thu-xJ-DoY" secondAttribute="bottom" constant="10" id="LKW-sM-bYK"/>
-                            <constraint firstItem="jf0-Iv-mTB" firstAttribute="leading" secondItem="rao-ff-bPb" secondAttribute="leading" id="PqH-97-Lpf"/>
-                            <constraint firstItem="jf0-Iv-mTB" firstAttribute="trailing" secondItem="rao-ff-bPb" secondAttribute="trailing" id="Psq-nl-YnT"/>
-                            <constraint firstItem="Thu-xJ-DoY" firstAttribute="leading" secondItem="rao-ff-bPb" secondAttribute="leading" constant="10" id="TTB-kb-nFd"/>
-                            <constraint firstItem="aOJ-MV-gSM" firstAttribute="leading" secondItem="rao-ff-bPb" secondAttribute="leading" id="TYA-D3-vF7"/>
+                            <constraint firstItem="PVK-It-HTa" firstAttribute="leading" secondItem="rao-ff-bPb" secondAttribute="leading" constant="10" id="NBw-ig-gnk"/>
+                            <constraint firstItem="aOJ-MV-gSM" firstAttribute="top" secondItem="Thu-xJ-DoY" secondAttribute="bottom" constant="10" id="Njb-wU-GPw"/>
+                            <constraint firstItem="jf0-Iv-mTB" firstAttribute="top" secondItem="PVK-It-HTa" secondAttribute="bottom" constant="10" id="OE2-AD-i0g"/>
+                            <constraint firstItem="aOJ-MV-gSM" firstAttribute="trailing" secondItem="rao-ff-bPb" secondAttribute="trailing" id="QLO-Ad-fCl"/>
+                            <constraint firstItem="Thu-xJ-DoY" firstAttribute="top" secondItem="U6a-Lx-JZZ" secondAttribute="bottom" constant="20" id="SzY-nz-4PH"/>
                             <constraint firstItem="U6a-Lx-JZZ" firstAttribute="leading" secondItem="rao-ff-bPb" secondAttribute="leading" constant="10" id="Yng-gT-s9S"/>
                             <constraint firstItem="oNP-Er-4jL" firstAttribute="leading" secondItem="U6a-Lx-JZZ" secondAttribute="trailing" constant="10" id="d8e-v7-fu8"/>
-                            <constraint firstItem="jf0-Iv-mTB" firstAttribute="top" secondItem="cse-nt-ujE" secondAttribute="bottom" constant="10" id="eZC-2V-HVO"/>
                             <constraint firstAttribute="trailing" secondItem="2GO-Au-LwN" secondAttribute="trailing" id="g41-6z-u2V"/>
+                            <constraint firstItem="Thu-xJ-DoY" firstAttribute="leading" secondItem="rao-ff-bPb" secondAttribute="leading" constant="10" id="m6T-9X-rPU"/>
                             <constraint firstItem="2GO-Au-LwN" firstAttribute="top" secondItem="rao-ff-bPb" secondAttribute="top" id="ojo-E4-OfC"/>
-                            <constraint firstItem="Thu-xJ-DoY" firstAttribute="top" secondItem="U6a-Lx-JZZ" secondAttribute="bottom" constant="20" id="ry2-1I-jy5"/>
-                            <constraint firstItem="cse-nt-ujE" firstAttribute="top" secondItem="aOJ-MV-gSM" secondAttribute="bottom" constant="10" id="yIB-aN-nNU"/>
+                            <constraint firstItem="PVK-It-HTa" firstAttribute="top" secondItem="aOJ-MV-gSM" secondAttribute="bottom" constant="10" id="phB-74-WvQ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="aIX-lG-ksb"/>
