@@ -10,6 +10,7 @@
 		0C0D429F27916A5800E4CB59 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D429E27916A5800E4CB59 /* Helper.swift */; };
 		0C0D42A22791736F00E4CB59 /* Watchlist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D42A02791736F00E4CB59 /* Watchlist+CoreDataClass.swift */; };
 		0C0D42A32791736F00E4CB59 /* Watchlist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D42A12791736F00E4CB59 /* Watchlist+CoreDataProperties.swift */; };
+		0C0D42A527918AFC00E4CB59 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D42A427918AFC00E4CB59 /* WatchlistViewController.swift */; };
 		0C789BAB276F3D8800FF2997 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BAA276F3D8800FF2997 /* AppDelegate.swift */; };
 		0C789BAD276F3D8800FF2997 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BAC276F3D8800FF2997 /* SceneDelegate.swift */; };
 		0C789BAF276F3D8800FF2997 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BAE276F3D8800FF2997 /* HomeViewController.swift */; };
@@ -30,6 +31,7 @@
 		0C0D429E27916A5800E4CB59 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		0C0D42A02791736F00E4CB59 /* Watchlist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Watchlist+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0C0D42A12791736F00E4CB59 /* Watchlist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Watchlist+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0C0D42A427918AFC00E4CB59 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
 		0C789BA7276F3D8800FF2997 /* Cryptomate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptomate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C789BAA276F3D8800FF2997 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C789BAC276F3D8800FF2997 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				256DBE432787497700AD9B89 /* BeritaViewController.swift */,
 				0CA9D5C7278B0D10009CD4E5 /* Coin.swift */,
 				259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */,
+				0C0D42A427918AFC00E4CB59 /* WatchlistViewController.swift */,
 				0C789BAC276F3D8800FF2997 /* SceneDelegate.swift */,
 				0C789BAE276F3D8800FF2997 /* HomeViewController.swift */,
 				0CA9D5C9278B1D3C009CD4E5 /* HomeTableViewCell.swift */,
@@ -177,6 +180,7 @@
 				E913C0CA278C15A400C0AF78 /* TrendingCollectionViewCell.swift in Sources */,
 				259CF85D2787131E00EC6781 /* DetailCryptoViewController.swift in Sources */,
 				256DBE442787497700AD9B89 /* BeritaViewController.swift in Sources */,
+				0C0D42A527918AFC00E4CB59 /* WatchlistViewController.swift in Sources */,
 				0C789BAD276F3D8800FF2997 /* SceneDelegate.swift in Sources */,
 				E913C0C8278C00B500C0AF78 /* TrendingTableViewCell.swift in Sources */,
 				252D96202787EEC6002C4419 /* Berita.swift in Sources */,

@@ -11,6 +11,21 @@ class DetailCryptoViewController: UIViewController {
     
     @IBOutlet weak var coinIdLabel: UILabel!
     var coinId:String?
+    
+    //TODO: UI for detail page
+    //TODO: Fetch API
+    //TODO: Assign data to label
+    //TODO: Add to core data
+    //TODO: Remove from core data
+    
+    /*
+     Name - Logo
+     Current price - Percent Change
+     ATH - ATL
+     24h_high - 24hlow
+     market_cap_usd - total_volume_usd
+     description
+     */
 
     override func viewDidLoad() {
         super.viewDidLoad()
