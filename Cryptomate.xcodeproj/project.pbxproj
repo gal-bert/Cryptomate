@@ -20,6 +20,8 @@
 		252D96202787EEC6002C4419 /* Berita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D961F2787EEC6002C4419 /* Berita.swift */; };
 		256DBE442787497700AD9B89 /* BeritaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256DBE432787497700AD9B89 /* BeritaViewController.swift */; };
 		259CF85D2787131E00EC6781 /* DetailCryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */; };
+		E913C0C8278C00B500C0AF78 /* TrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913C0C7278C00B500C0AF78 /* TrendingTableViewCell.swift */; };
+		E913C0CA278C15A400C0AF78 /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913C0C9278C15A400C0AF78 /* TrendingCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		252D961F2787EEC6002C4419 /* Berita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Berita.swift; sourceTree = "<group>"; };
 		256DBE432787497700AD9B89 /* BeritaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeritaViewController.swift; sourceTree = "<group>"; };
 		259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCryptoViewController.swift; sourceTree = "<group>"; };
+		E913C0C7278C00B500C0AF78 /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
+		E913C0C9278C15A400C0AF78 /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				0C789BB3276F3D8800FF2997 /* Cryptomate.xcdatamodeld */,
 				0C789BB8276F3D8A00FF2997 /* LaunchScreen.storyboard */,
 				0C789BB0276F3D8800FF2997 /* Main.storyboard */,
+				E913C0C7278C00B500C0AF78 /* TrendingTableViewCell.swift */,
+				E913C0C9278C15A400C0AF78 /* TrendingCollectionViewCell.swift */,
 			);
 			path = Cryptomate;
 			sourceTree = "<group>";
@@ -161,9 +167,11 @@
 			files = (
 				0C789BAF276F3D8800FF2997 /* HomeViewController.swift in Sources */,
 				0C789BAB276F3D8800FF2997 /* AppDelegate.swift in Sources */,
+				E913C0CA278C15A400C0AF78 /* TrendingCollectionViewCell.swift in Sources */,
 				259CF85D2787131E00EC6781 /* DetailCryptoViewController.swift in Sources */,
 				256DBE442787497700AD9B89 /* BeritaViewController.swift in Sources */,
 				0C789BAD276F3D8800FF2997 /* SceneDelegate.swift in Sources */,
+				E913C0C8278C00B500C0AF78 /* TrendingTableViewCell.swift in Sources */,
 				252D96202787EEC6002C4419 /* Berita.swift in Sources */,
 				0CA9D5CA278B1D3C009CD4E5 /* HomeTableViewCell.swift in Sources */,
 				0C7E1A56278B331A00686323 /* DetailViewController.swift in Sources */,

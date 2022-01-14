@@ -15,8 +15,8 @@ struct Coin {
     let name:String
     var imageUrl:String
     var imageThumb:UIImage? = nil
-    let currentPrice:Double
-    let percentChange:Double
+    var currentPrice:Double
+    var percentChange:Double
     let marketCap:Double
     let totalVolume:Double
     let high:Double

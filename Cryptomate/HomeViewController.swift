@@ -9,15 +9,16 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var homeTableView: UITableView!
+    @IBOutlet weak var trendingTableView: UITableView!
     
     var arrCoins = [Coin]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.rowHeight = 65
+        self.homeTableView.rowHeight = 65
+        self.trendingTableView.rowHeight = 119
         
         let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false"
         let url = URL(string: urlString)!
@@ -32,7 +33,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     
                     for result in results {
                         
-                        var coin = Coin(
+                        let coin = Coin(
                             id: result["id"] as! String,
                             symbol: result["symbol"] as! String,
                             name: result["name"] as! String,
@@ -56,7 +57,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                 self.arrCoins[row].imageThumb = UIImage(data: data!)
                                 let indexPath = IndexPath(row: row, section: 0)
                                 DispatchQueue.main.async {
-                                    self.tableView.reloadRows(at: [indexPath], with: .fade)
+                                    self.homeTableView.reloadRows(at: [indexPath], with: .fade)
                                 }
                             }
                             
@@ -65,7 +66,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         imageTask.resume()
                     }
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                        self.homeTableView.reloadData()
                     }
                 }
                 catch {
@@ -81,34 +82,53 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     } //didLoad
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrCoins.count
+        if tableView == homeTableView {
+            return arrCoins.count
+        }
+        
+        if tableView == trendingTableView {
+            return 1
+        }
+        
+        return Int()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! HomeTableViewCell
-        let coin = arrCoins[indexPath.row]
         
-        cell.id.text = coin.symbol.uppercased()
-        cell.name.text = coin.name
-        
-        if coin.currentPrice < 0.01 {
-            cell.price.text = "$\(String(format: "%.5f", coin.currentPrice))"
-        } else {
-            cell.price.text = "$\(String(format: "%.2f", coin.currentPrice))"
-        }
-        
-        if coin.percentChange < 0 {
-            cell.change.textColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        } else if coin.percentChange > 0 {
-            cell.change.textColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
-        }
-        
-        cell.change.text = "\(String(format: "%.2f", coin.percentChange))%"
-        
-        cell.coinImage.image = coin.imageThumb
+        if tableView == homeTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! HomeTableViewCell
+            let coin = arrCoins[indexPath.row]
+            
+            cell.id.text = coin.symbol.uppercased()
+            cell.name.text = coin.name
+            
+            if coin.currentPrice < 0.01 {
+                cell.price.text = "$\(String(format: "%.5f", coin.currentPrice))"
+            } else {
+                cell.price.text = "$\(String(format: "%.2f", coin.currentPrice))"
+            }
+            
+            if coin.percentChange < 0 {
+                cell.change.textColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            } else if coin.percentChange > 0 {
+                cell.change.textColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
+            }
+            
+            cell.change.text = "\(String(format: "%.2f", coin.percentChange))%"
+            
+            cell.coinImage.image = coin.imageThumb
 
-//        cell.coinImage.image = UIImage(named: "news")
-        return cell
+    //        cell.coinImage.image = UIImage(named: "news")
+            return cell
+        }
+        
+        if tableView == trendingTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "trendingTableViewCell") as! TrendingTableViewCell
+            
+            return cell
+        }
+        
+        return UITableViewCell()
     }
 
 }
