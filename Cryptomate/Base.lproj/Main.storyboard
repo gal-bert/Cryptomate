@@ -125,7 +125,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t0W-Ba-GqQ">
-                                                    <rect key="frame" x="20" y="0.0" width="300" height="119"/>
+                                                    <rect key="frame" x="10" y="0.0" width="310" height="119"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MXC-9H-zO1">
                                                         <size key="itemSize" width="135" height="115"/>
@@ -196,7 +196,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="t0W-Ba-GqQ" secondAttribute="trailing" id="LlR-Lf-bde"/>
                                                 <constraint firstAttribute="bottom" secondItem="t0W-Ba-GqQ" secondAttribute="bottom" id="ZqD-XK-uSB"/>
-                                                <constraint firstItem="t0W-Ba-GqQ" firstAttribute="leading" secondItem="fex-Ya-hBG" secondAttribute="leading" constant="20" id="deQ-U0-fpU"/>
+                                                <constraint firstItem="t0W-Ba-GqQ" firstAttribute="leading" secondItem="fex-Ya-hBG" secondAttribute="leading" constant="10" id="deQ-U0-fpU"/>
                                                 <constraint firstItem="t0W-Ba-GqQ" firstAttribute="top" secondItem="fex-Ya-hBG" secondAttribute="top" id="ef6-Tr-jxm"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -351,7 +351,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8G-FT-uzi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896" y="1286"/>
+            <point key="canvasLocation" x="894" y="1377"/>
         </scene>
         <!--News-->
         <scene sceneID="1fK-MO-RN5">

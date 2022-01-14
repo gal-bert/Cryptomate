@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0D429F27916A5800E4CB59 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0D429E27916A5800E4CB59 /* Helper.swift */; };
 		0C789BAB276F3D8800FF2997 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BAA276F3D8800FF2997 /* AppDelegate.swift */; };
 		0C789BAD276F3D8800FF2997 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BAC276F3D8800FF2997 /* SceneDelegate.swift */; };
 		0C789BAF276F3D8800FF2997 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BAE276F3D8800FF2997 /* HomeViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C0D429E27916A5800E4CB59 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		0C789BA7276F3D8800FF2997 /* Cryptomate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptomate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C789BAA276F3D8800FF2997 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C789BAC276F3D8800FF2997 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				0C789BB8276F3D8A00FF2997 /* LaunchScreen.storyboard */,
 				0C789BB0276F3D8800FF2997 /* Main.storyboard */,
 				E913C0C7278C00B500C0AF78 /* TrendingTableViewCell.swift */,
+				0C0D429E27916A5800E4CB59 /* Helper.swift */,
 				E913C0C9278C15A400C0AF78 /* TrendingCollectionViewCell.swift */,
 			);
 			path = Cryptomate;
@@ -175,6 +178,7 @@
 				252D96202787EEC6002C4419 /* Berita.swift in Sources */,
 				0CA9D5CA278B1D3C009CD4E5 /* HomeTableViewCell.swift in Sources */,
 				0C7E1A56278B331A00686323 /* DetailViewController.swift in Sources */,
+				0C0D429F27916A5800E4CB59 /* Helper.swift in Sources */,
 				0CA9D5C8278B0D10009CD4E5 /* Coin.swift in Sources */,
 				0C789BB5276F3D8800FF2997 /* Cryptomate.xcdatamodeld in Sources */,
 			);
