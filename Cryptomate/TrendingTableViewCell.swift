@@ -2,25 +2,27 @@
 //  TrendingTableViewCell.swift
 //  Cryptomate
 //
-//  Created by Thomas Ryouga Tanaka on 10/01/22.
+//  Created by Kevin Putra Yonathan on 10/01/22.
 //
 
 import UIKit
+
+protocol TrendingTableViewDelegate {
+    func onClick(id:String)
+}
+
 
 class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var trendingCollectionView: UICollectionView!
     
     var arrTrendings = [Coin]()
-    
+    var trendingTableViewDelegate:TrendingTableViewDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         trendingCollectionView.dataSource = self
         trendingCollectionView.delegate = self
-        
-//        trendingCollectionView.layer.borderColor = UIColor.black.cgColor
-//        trendingCollectionView.layer.borderWidth = 3.0
-//        trendingCollectionView.layer.cornerRadius = 3.0
         
         let urlString = "https://api.coingecko.com/api/v3/search/trending"
         let url = URL(string: urlString)!
@@ -54,6 +56,43 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
                         let row = self.arrTrendings.count
                         self.arrTrendings.append(coin)
                         
+                        let urlString2 = "https://api.coingecko.com/api/v3/coins/\(id)"
+                        let url2 = URL(string: urlString2)!
+                        let req2 = URLRequest(url: url2)
+                        
+                        var usd:Double?
+                        var percentChange:Double?
+                        
+                        let session2 = URLSession.shared
+                        let task2 = session2.dataTask(with: req2) { data, response, error in
+                            if error == nil {
+                                do{
+                                    let root2 = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any]
+                                    let mktData = root2["market_data"] as! [String:Any]
+                                    
+                                    let currentPrice = mktData["current_price"] as! [String:Any]
+                                    usd = currentPrice["usd"] as? Double
+                                    percentChange = mktData["price_change_percentage_24h"] as? Double
+                                                                
+                                    self.arrTrendings[row].currentPrice = usd!
+                                    self.arrTrendings[row].percentChange = percentChange!
+                                    let indexPath = IndexPath(row: row, section: 0)
+                                    DispatchQueue.main.async {
+                                        self.trendingCollectionView.reloadItems(at: [indexPath])
+                                    }
+                                    
+                                }
+                                catch {
+                                    
+                                }
+                            }
+                            else {
+                                print(error?.localizedDescription)
+                            }
+                        }
+                        task2.resume()
+                        
+                        
                         let imageURL = URL(string: coin.imageUrl)!
 
                         let imageTask = session.dataTask(with: imageURL) { data, response, error in
@@ -65,8 +104,6 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
                                     self.trendingCollectionView.reloadItems(at: [indexPath])
                                 }
                             }
-                            
-
                         }
                         imageTask.resume()
                     }
@@ -107,17 +144,9 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         
         cell.trendingImage.image = coin.imageThumb
         cell.trendingSymbol.text = coin.symbol
-        if coin.currentPrice < 0.01 {
-            cell.trendingPrice.text = "$\(String(format: "%.5f", coin.currentPrice))"
-        } else {
-            cell.trendingPrice.text = "$\(String(format: "%.2f", coin.currentPrice))"
-        }
-        
-        if coin.percentChange < 0 {
-            cell.trendingChange.textColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        } else if coin.percentChange > 0 {
-            cell.trendingChange.textColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
-        }
+        cell.trendingPrice.text = Helper.formatPrice(price: coin.currentPrice)
+        cell.trendingChange.textColor = Helper.formatChange(change: coin.percentChange)
+        cell.trendingChange.text = "\(String(format: "%.2f", coin.percentChange))%"
         
         return cell
     }
@@ -126,4 +155,13 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         return CGSize(width: 135, height: 115)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let id = arrTrendings[indexPath.row].id
+        trendingTableViewDelegate?.onClick(id: id)
+    }
+    
+    
+    
 }
+
+
