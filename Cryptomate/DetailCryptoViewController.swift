@@ -89,14 +89,15 @@ class DetailCryptoViewController: UIViewController {
                     
                     DispatchQueue.main.async {
                         self.nameLabel.text = name
-                        self.priceLabel.text = "$\(currentPriceUsd!)"
-                        self.changeLabel.text = "\(priceChangePercentage24h)%"
-                        self.athLabel.text = "ATH: \(athUsd!)"
-                        self.atlLabel.text = "ATL: \(atlUsd!)"
-                        self.marketCapLabel.text = "Market Cap: \(marketCapUsd!)"
-                        self.volumeLabel.text = "Volume: \(volumeUsd!)"
-                        self.highLabel.text = "24H High: \(high24hUsd!)"
-                        self.lowLabel.text = "24H Low: \(low24hUsd!)"
+                        self.priceLabel.text = Helper.formatPrice(price: currentPriceUsd!)
+                        self.changeLabel.text = "\(String(format: "%.2f", priceChangePercentage24h))%"
+                        self.changeLabel.textColor = Helper.formatChange(change: priceChangePercentage24h)
+                        self.athLabel.text = "ATH: $\(athUsd!)"
+                        self.atlLabel.text = "ATL: $\(atlUsd!)"
+                        self.marketCapLabel.text = "Market Cap: $\(marketCapUsd!)"
+                        self.volumeLabel.text = "Volume: $\(volumeUsd!)"
+                        self.highLabel.text = "24H High: $\(high24hUsd!)"
+                        self.lowLabel.text = "24H Low: $\(low24hUsd!)"
                         
                         let html = NSString(string: descriptionEn!).data(using: String.Encoding.utf8.rawValue)
                         let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]

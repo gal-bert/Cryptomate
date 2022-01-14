@@ -107,17 +107,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.id.text = coin.symbol.uppercased()
             cell.name.text = coin.name
             
-            if coin.currentPrice < 0.01 {
-                cell.price.text = "$\(String(format: "%.5f", coin.currentPrice))"
-            } else {
-                cell.price.text = "$\(String(format: "%.2f", coin.currentPrice))"
-            }
+            cell.price.text = Helper.formatPrice(price: coin.currentPrice)
             
-            if coin.percentChange < 0 {
-                cell.change.textColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-            } else if coin.percentChange > 0 {
-                cell.change.textColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
-            }
+            cell.change.textColor = Helper.formatChange(change: coin.percentChange)
             
             cell.change.text = "\(String(format: "%.2f", coin.percentChange))%"
             

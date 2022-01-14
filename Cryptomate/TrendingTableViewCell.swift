@@ -144,17 +144,9 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         
         cell.trendingImage.image = coin.imageThumb
         cell.trendingSymbol.text = coin.symbol
-        if coin.currentPrice < 0.01 {
-            cell.trendingPrice.text = "$\(String(format: "%.5f", coin.currentPrice))"
-        } else {
-            cell.trendingPrice.text = "$\(String(format: "%.2f", coin.currentPrice))"
-        }
-        
-        if coin.percentChange < 0 {
-            cell.trendingChange.textColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        } else if coin.percentChange > 0 {
-            cell.trendingChange.textColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
-        }
+        cell.trendingPrice.text = Helper.formatPrice(price: coin.currentPrice)
+        cell.trendingChange.textColor = Helper.formatChange(change: coin.percentChange)
+        cell.trendingChange.text = "\(String(format: "%.2f", coin.percentChange))%"
         
         return cell
     }

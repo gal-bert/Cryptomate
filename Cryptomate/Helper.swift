@@ -25,4 +25,21 @@ class Helper {
         return alert
     }
     
+    static func formatPrice(price: Double) -> String {
+        if price < 0.01 {
+            return "$\(String(format: "%.5f", price))"
+        } else {
+           return "$\(String(format: "%.2f", price))"
+        }
+    }
+    
+    static func formatChange(change: Double) -> UIColor {
+        if change < 0 {
+            return UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        } else if change > 0 {
+            return UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
+        }
+        return UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+    }
+    
 }
