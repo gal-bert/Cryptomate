@@ -126,10 +126,14 @@ class DetailCryptoViewController: UIViewController {
     
     @IBAction func saveToWatchlist(_ sender: Any) {
         
-//        let fullheart = UIImage(named: "fullheart")
+        let fullheart = UIImage(named: "fullheart")
         let heart = UIImage(named: "heart")
         
-        if saveBarButtonItem.image {
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Watchlist.checkIdExist(coinId: coinId!)
+        let result = try! context.fetch(fetchRequest)
+        
+        if result.isEmpty { // Not exist, then save
             do{
                 let context = appDelegate.persistentContainer.viewContext
                 let watchlist = Watchlist(context: context)
@@ -139,13 +143,22 @@ class DetailCryptoViewController: UIViewController {
             } catch {
                 print(error.localizedDescription)
             }
-        }else {
-            //TODO: Remove id from core data
-            self.present(Helper.pushAlert(title: "Id removed", message: "Id removed"), animated: true, completion: nil)
+            saveBarButtonItem.image = fullheart
         }
+        else {
+            let context = appDelegate.persistentContainer.viewContext
+            context.delete(result[0])
+            saveBarButtonItem.image = heart
+        }
+
         
         
     }
     
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+        // reload data
+    }
     
 }
