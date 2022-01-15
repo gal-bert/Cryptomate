@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        var urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        print(urls[urls.count-1] as URL)
         
         self.homeTableView.rowHeight = 65
         self.trendingTableView.rowHeight = 119
@@ -101,7 +103,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == homeTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! HomeTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! CustomTableViewCell
             let coin = arrCoins[indexPath.row]
             
             cell.id.text = coin.symbol.uppercased()
@@ -138,7 +140,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func search(_ sender: Any) {
         
-        let coinId = searchTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let coinId = searchTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased().addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let urlString = "https://api.coingecko.com/api/v3/coins/\(coinId!)"
         let url = URL(string: urlString)!
         
@@ -178,10 +180,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let destination = segue.destination as! DetailCryptoViewController
             destination.coinId = temp
         }
-    }
-    
-    @IBAction func unwindToHomepage(_ unwindSegue: UIStoryboardSegue) {
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

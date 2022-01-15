@@ -37,7 +37,7 @@ class Helper {
         if change < 0 {
             return UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
         } else if change > 0 {
-            return UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
+            return UIColor(red: 0.25, green: 0.89, blue: 0.00, alpha: 1.00)
         }
         return UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
     }

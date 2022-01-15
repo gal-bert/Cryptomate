@@ -136,9 +136,9 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trendingCollectionViewCell", for: indexPath) as! TrendingCollectionViewCell
         
-        cell.layer.borderColor = UIColor.gray.cgColor
+        cell.layer.borderColor = UIColor(red: 0.88, green: 0.88, blue: 0.88, alpha: 1.00).cgColor
         cell.layer.borderWidth = 1.0
-        cell.layer.cornerRadius = 3.0
+        cell.layer.cornerRadius = 5.0
         
         let coin = arrTrendings[indexPath.row]
         

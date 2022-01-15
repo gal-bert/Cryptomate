@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Watchlist {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Watchlist> {

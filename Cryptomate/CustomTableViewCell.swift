@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell {
+class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var coinImage: UIImageView!
     @IBOutlet weak var name: UILabel!
