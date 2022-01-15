@@ -20,6 +20,7 @@ class DetailCryptoViewController: UIViewController {
     @IBOutlet weak var lowLabel: UILabel!
     @IBOutlet weak var imageLogo: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var coinId:String?
@@ -29,6 +30,14 @@ class DetailCryptoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = Watchlist.checkIdExist(coinId: coinId!)
+        let result = try! context.fetch(fetchRequest)
+        
+        if !result.isEmpty {
+            saveBarButtonItem.image = UIImage(named: "fullheart")
+        }
 
         let urlString = "https://api.coingecko.com/api/v3/coins/\(coinId!)"
         let url = URL(string: urlString)!
@@ -71,7 +80,6 @@ class DetailCryptoViewController: UIViewController {
                     let low24h = marketData["low_24h"] as! [String: Double]
                     let low24hUsd = low24h["usd"]
                     
-                    let priceChange24h = marketData["price_change_24h"] as! Double
                     let priceChangePercentage24h = marketData["price_change_percentage_24h"] as! Double
                     
                     let imageURL = URL(string: imageLarge!)!
@@ -118,15 +126,26 @@ class DetailCryptoViewController: UIViewController {
     
     @IBAction func saveToWatchlist(_ sender: Any) {
         
-        do{
-            let context = appDelegate.persistentContainer.viewContext
-            let watchlist = Watchlist(context: context)
-            watchlist.coinId = coinId
-            context.insert(watchlist)
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
+//        let fullheart = UIImage(named: "fullheart")
+        let heart = UIImage(named: "heart")
+        
+        if saveBarButtonItem.image {
+            do{
+                let context = appDelegate.persistentContainer.viewContext
+                let watchlist = Watchlist(context: context)
+                watchlist.coinId = coinId
+                context.insert(watchlist)
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }else {
+            //TODO: Remove id from core data
+            self.present(Helper.pushAlert(title: "Id removed", message: "Id removed"), animated: true, completion: nil)
         }
+        
+        
     }
+    
     
 }

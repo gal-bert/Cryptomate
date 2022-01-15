@@ -19,6 +19,7 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
     
     var arrCoins = [Coin]()
     var arrId = [Watchlist]()
+    var temp:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,7 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
             let coinsResult = try context.fetch(fetchCoins)
             arrId = coinsResult
             
+            arrCoins.removeAll()
             for wl in arrId {
                 getDataFromAPI(id: wl.coinId!)
             }
@@ -67,16 +69,15 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
                     let currentPrice = marketData["current_price"] as! [String: Double]
                     let currentPriceUsd = currentPrice["usd"]
                     
-                    let priceChange24h = marketData["price_change_24h"] as! Double
                     let priceChangePercentage24h = marketData["price_change_percentage_24h"] as! Double
                     
                     let coin = Coin(
-                        id: id as! String,
-                        symbol: symbol as! String,
-                        name: name as! String,
-                        imageUrl: imageLarge as! String,
-                        currentPrice: currentPriceUsd as! Double,
-                        percentChange: priceChangePercentage24h as! Double,
+                        id: id,
+                        symbol: symbol,
+                        name: name,
+                        imageUrl: imageLarge!,
+                        currentPrice: currentPriceUsd!,
+                        percentChange: priceChangePercentage24h ,
                         marketCap: 0,
                         totalVolume: 0,
                         high: 0,
@@ -138,10 +139,16 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: Segue to detail
+        temp = arrCoins[indexPath.row].id
+        performSegue(withIdentifier: "toDetailSegue", sender: temp)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Segue prep
+        if segue.identifier == "toDetailSegue" {
+            let destination = segue.destination as! DetailCryptoViewController
+            destination.coinId = temp
+        }
     }
     
 

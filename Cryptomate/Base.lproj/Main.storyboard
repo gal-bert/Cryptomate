@@ -385,7 +385,7 @@
                     <tabBarItem key="tabBarItem" title="Watchlist" image="watchlist" id="bO6-rk-bsR"/>
                     <connections>
                         <outlet property="tableView" destination="8ep-1Q-Kp9" id="aGU-xC-xYQ"/>
-                        <segue destination="AXe-Br-4Jh" kind="presentation" modalPresentationStyle="fullScreen" id="XPv-OJ-EEw"/>
+                        <segue destination="AXe-Br-4Jh" kind="presentation" identifier="toDetailSegue" modalPresentationStyle="fullScreen" id="XPv-OJ-EEw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2k-YV-bz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -409,9 +409,9 @@
                                                 <segue destination="VFF-9F-2uL" kind="unwind" unwindAction="unwindToHomepage:" id="JBB-Re-snH"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" id="1pN-b8-v8U">
+                                        <barButtonItem key="rightBarButtonItem" title="save" image="heart" id="H5c-gP-bPS">
                                             <connections>
-                                                <action selector="saveToWatchlist:" destination="AXe-Br-4Jh" id="lXZ-vC-mGs"/>
+                                                <action selector="saveToWatchlist:" destination="AXe-Br-4Jh" id="91N-N2-AcB"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -481,7 +481,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oS5-UC-Or5">
                                 <rect key="frame" x="20" y="327" width="280" height="231"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -531,6 +531,7 @@
                         <outlet property="marketCapLabel" destination="4AB-bJ-H7U" id="mDT-Fn-QAz"/>
                         <outlet property="nameLabel" destination="6Uv-gU-Yba" id="bC7-dl-Lk3"/>
                         <outlet property="priceLabel" destination="Kuy-gd-sFi" id="PLv-bU-ZY3"/>
+                        <outlet property="saveBarButtonItem" destination="H5c-gP-bPS" id="kEE-LB-wll"/>
                         <outlet property="volumeLabel" destination="nMg-6C-QeY" id="hBi-PG-VSi"/>
                     </connections>
                 </viewController>
