@@ -286,7 +286,7 @@
         <!--Watchlist-->
         <scene sceneID="ZDW-2s-uOX">
             <objects>
-                <viewController id="sjK-at-ahv" sceneMemberID="viewController">
+                <viewController id="sjK-at-ahv" customClass="WatchlistViewController" customModule="Cryptomate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jQE-SI-dry">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,15 +301,73 @@
                                 <rect key="frame" x="0.0" y="91" width="320" height="428"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ldO-UO-kVM">
-                                        <rect key="frame" x="0.0" y="44.5" width="320" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="65" id="GFZ-pc-Rlf" customClass="HomeTableViewCell" customModule="Cryptomate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ldO-UO-kVM" id="kwa-eX-UK1">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GFZ-pc-Rlf" id="T7i-Ri-0G8">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cz8-GO-gpY">
+                                                    <rect key="frame" x="10" y="10" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="cz8-GO-gpY" secondAttribute="height" multiplier="1:1" id="J7R-xz-OWN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jS-j7-hws">
+                                                    <rect key="frame" x="65" y="10" width="53" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zR3-LN-CF3">
+                                                    <rect key="frame" x="65" y="34" width="33" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$42000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4n-aa-XBF">
+                                                    <rect key="frame" x="248" y="10" width="62" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-3.2%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kv2-nQ-Pcy">
+                                                    <rect key="frame" x="263" y="34" width="47" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cz8-GO-gpY" firstAttribute="top" secondItem="T7i-Ri-0G8" secondAttribute="top" constant="10" id="7gN-rC-lOL"/>
+                                                <constraint firstItem="zR3-LN-CF3" firstAttribute="leading" secondItem="cz8-GO-gpY" secondAttribute="trailing" constant="10" id="FSC-A7-nu7"/>
+                                                <constraint firstItem="6jS-j7-hws" firstAttribute="top" secondItem="T7i-Ri-0G8" secondAttribute="top" constant="10" id="KoQ-8b-p0F"/>
+                                                <constraint firstItem="Kv2-nQ-Pcy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zR3-LN-CF3" secondAttribute="trailing" constant="8" symbolic="YES" id="QYv-Sc-dca"/>
+                                                <constraint firstItem="6jS-j7-hws" firstAttribute="leading" secondItem="cz8-GO-gpY" secondAttribute="trailing" constant="10" id="aMZ-hQ-SlU"/>
+                                                <constraint firstItem="X4n-aa-XBF" firstAttribute="top" secondItem="T7i-Ri-0G8" secondAttribute="top" constant="10" id="ele-Ob-uCI"/>
+                                                <constraint firstItem="X4n-aa-XBF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6jS-j7-hws" secondAttribute="trailing" constant="8" symbolic="YES" id="fbM-M4-oZp"/>
+                                                <constraint firstAttribute="bottom" secondItem="Kv2-nQ-Pcy" secondAttribute="bottom" constant="10" id="gPH-Jk-tOx"/>
+                                                <constraint firstAttribute="trailing" secondItem="Kv2-nQ-Pcy" secondAttribute="trailing" constant="10" id="gaf-Td-SeD"/>
+                                                <constraint firstAttribute="trailing" secondItem="X4n-aa-XBF" secondAttribute="trailing" constant="10" id="hNc-XS-LAz"/>
+                                                <constraint firstAttribute="bottom" secondItem="zR3-LN-CF3" secondAttribute="bottom" constant="10" id="pe6-YW-T3a"/>
+                                                <constraint firstAttribute="bottom" secondItem="cz8-GO-gpY" secondAttribute="bottom" constant="10" id="w4S-oV-30O"/>
+                                                <constraint firstItem="cz8-GO-gpY" firstAttribute="leading" secondItem="T7i-Ri-0G8" secondAttribute="leading" constant="10" id="wKT-lQ-Fhx"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="change" destination="Kv2-nQ-Pcy" id="xn1-es-0jf"/>
+                                            <outlet property="coinImage" destination="cz8-GO-gpY" id="0vD-RX-YsM"/>
+                                            <outlet property="id" destination="zR3-LN-CF3" id="fhM-u9-qwX"/>
+                                            <outlet property="name" destination="6jS-j7-hws" id="Rtb-J5-SJS"/>
+                                            <outlet property="price" destination="X4n-aa-XBF" id="c9r-ZB-q3E"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sjK-at-ahv" id="h9r-QS-xZP"/>
+                                    <outlet property="delegate" destination="sjK-at-ahv" id="0Ej-fu-G5H"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gwp-kp-w7V"/>
@@ -326,6 +384,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Watchlist" image="watchlist" id="bO6-rk-bsR"/>
                     <connections>
+                        <outlet property="tableView" destination="8ep-1Q-Kp9" id="aGU-xC-xYQ"/>
                         <segue destination="AXe-Br-4Jh" kind="presentation" modalPresentationStyle="fullScreen" id="XPv-OJ-EEw"/>
                     </connections>
                 </viewController>
@@ -350,7 +409,11 @@
                                                 <segue destination="VFF-9F-2uL" kind="unwind" unwindAction="unwindToHomepage:" id="JBB-Re-snH"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" id="1pN-b8-v8U"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" id="1pN-b8-v8U">
+                                            <connections>
+                                                <action selector="saveToWatchlist:" destination="AXe-Br-4Jh" id="lXZ-vC-mGs"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -544,7 +607,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="g7g-0s-xmh"/>
+        <segue reference="XPv-OJ-EEw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="heart" width="30" height="30"/>
