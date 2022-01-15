@@ -14,15 +14,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var trendingTableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var arrCoins = [Coin]()
     var temp:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        var urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        print(urls[urls.count-1] as URL)
+
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
         
         self.homeTableView.rowHeight = 65
         self.trendingTableView.rowHeight = 119
@@ -86,7 +87,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         task.resume()
         
-    } //didLoad
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == homeTableView {
@@ -101,6 +102,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        activityIndicator.stopAnimating()
         
         if tableView == homeTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! CustomTableViewCell
@@ -140,6 +143,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func search(_ sender: Any) {
         
+        activityIndicator.startAnimating()
+        
         let coinId = searchTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased().addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let urlString = "https://api.coingecko.com/api/v3/coins/\(coinId!)"
         let url = URL(string: urlString)!
@@ -153,11 +158,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
                 if statusCode! == 404 || coinId == "" {
                     DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
                         self.present(Helper.pushAlert(title: "Oops!", message: "Coin not found!"), animated: true, completion: nil)
                     }
                 } else {
                     DispatchQueue.main.async {
                         self.temp = coinId
+                        self.activityIndicator.stopAnimating()
                         self.performSegue(withIdentifier: "toDetailSegue", sender: self)
                     }
                 }
@@ -170,6 +177,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         detailTask.resume()
     }
     
+    //Delegate from collection view
     func onClick(id: String) {
         temp = id
         performSegue(withIdentifier: "toDetailSegue", sender: self)

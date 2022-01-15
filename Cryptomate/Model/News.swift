@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Berita {
+struct News {
     var title: String
     var description: String
     var publishedAt: String

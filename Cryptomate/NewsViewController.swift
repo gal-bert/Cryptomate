@@ -1,5 +1,5 @@
 //
-//  BeritaViewController.swift
+//  NewsViewController.swift
 //  Cryptomate
 //
 //  Created by Ivan Su on 1/6/22.
@@ -7,18 +7,21 @@
 
 import UIKit
 
-class BeritaViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var beritaList = [Berita]()
+    var arrNews = [News]()
+    
+    var arrStr = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        
+        activityIndicator.startAnimating()
         
         // API CALL
         let urlString = "https://newsapi.org/v2/everything?q=crypto&from=2021-12-20&apiKey=c0d5252381e04396bb6a5f49d87bd9e3"
@@ -35,7 +38,7 @@ class BeritaViewController: UIViewController, UITableViewDataSource, UITableView
                     
                     for item in arr {
                         let i = item as! [String: Any]
-                        let berita = Berita(
+                        let news = News(
                             title: i["title"] as! String,
                             description: i["description"] as! String,
                             publishedAt: i["publishedAt"] as! String,
@@ -44,7 +47,13 @@ class BeritaViewController: UIViewController, UITableViewDataSource, UITableView
                             url: i["url"] as! String
                         )
                         
-                        self.beritaList.append(berita)
+                        self.arrNews.append(news)
+                        
+//                        if arrNews.count > 0 {
+//                            arrNews.sort {
+//                                $0.title.localizedStandardCompare($1.title) == .orderedAscending
+//                            }
+//                        }
                         
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -62,41 +71,39 @@ class BeritaViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "beritaCell")!
-        let berita = beritaList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        
+        
+        arrNews.sort {
+            $0.title.localizedStandardCompare($1.title) == .orderedAscending
+        }
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
+        
+        let news = arrNews[indexPath.row]
         
         // Format date from String
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM, YYYY - HH:MM"
         let isoformat = ISO8601DateFormatter()
-        let date = isoformat.date(from: berita.publishedAt)
+        let date = isoformat.date(from: news.publishedAt)
         let strDate = dateFormatter.string(from: date!)
         
-        cell.textLabel?.text = berita.title
+        cell.textLabel?.text = news.title
         cell.detailTextLabel?.text = "Published: \(String(describing: strDate))"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return beritaList.count
+        return arrNews.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let berita = beritaList[indexPath.row]
+        let news = arrNews[indexPath.row]
         
-        guard let url = URL(string: berita.url) else { return }
+        guard let url = URL(string: news.url) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

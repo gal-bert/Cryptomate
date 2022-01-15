@@ -10,6 +10,8 @@ import UIKit
 class WatchlistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     //TODO: Fix data load often errors
@@ -23,6 +25,8 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
         reload()
         tableView.reloadData()
     }
@@ -83,6 +87,13 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
                     let row = self.arrCoins.count
                     self.arrCoins.append(coin)
                     
+                    // TODO: Sort logo based on coin title
+//                    if self.arrCoins.count > 0 {
+//                        self.arrCoins.sort {
+//                            $0.name.localizedStandardCompare($1.name) == .orderedAscending
+//                        }
+//                    }
+                    
                     let imageURL = URL(string: imageLarge!)!
 
                     let imageTask = session.dataTask(with: imageURL) { data, response, error in
@@ -112,6 +123,13 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! CustomTableViewCell
+        activityIndicator.stopAnimating()
+        
+        //MARK: Check this out
+//        arrCoins.sort {
+//            $0.name.localizedStandardCompare($1.name) == .orderedAscending
+//        }
+        
         let coin = arrCoins[indexPath.row]
         
         cell.id.text = coin.symbol.uppercased()

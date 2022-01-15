@@ -20,8 +20,8 @@
 		0C789BBA276F3D8A00FF2997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C789BB8276F3D8A00FF2997 /* LaunchScreen.storyboard */; };
 		0CA9D5C8278B0D10009CD4E5 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D5C7278B0D10009CD4E5 /* Coin.swift */; };
 		0CA9D5CA278B1D3C009CD4E5 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D5C9278B1D3C009CD4E5 /* CustomTableViewCell.swift */; };
-		252D96202787EEC6002C4419 /* Berita.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D961F2787EEC6002C4419 /* Berita.swift */; };
-		256DBE442787497700AD9B89 /* BeritaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256DBE432787497700AD9B89 /* BeritaViewController.swift */; };
+		252D96202787EEC6002C4419 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D961F2787EEC6002C4419 /* News.swift */; };
+		256DBE442787497700AD9B89 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256DBE432787497700AD9B89 /* NewsViewController.swift */; };
 		259CF85D2787131E00EC6781 /* DetailCryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */; };
 		E913C0C8278C00B500C0AF78 /* TrendingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913C0C7278C00B500C0AF78 /* TrendingTableViewCell.swift */; };
 		E913C0CA278C15A400C0AF78 /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913C0C9278C15A400C0AF78 /* TrendingCollectionViewCell.swift */; };
@@ -43,8 +43,8 @@
 		0C789BBB276F3D8A00FF2997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CA9D5C7278B0D10009CD4E5 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		0CA9D5C9278B1D3C009CD4E5 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		252D961F2787EEC6002C4419 /* Berita.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Berita.swift; sourceTree = "<group>"; };
-		256DBE432787497700AD9B89 /* BeritaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeritaViewController.swift; sourceTree = "<group>"; };
+		252D961F2787EEC6002C4419 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		256DBE432787497700AD9B89 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCryptoViewController.swift; sourceTree = "<group>"; };
 		E913C0C7278C00B500C0AF78 /* TrendingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableViewCell.swift; sourceTree = "<group>"; };
 		E913C0C9278C15A400C0AF78 /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -83,9 +83,7 @@
 				0CC67CD02792E38A00EE172A /* Model */,
 				0C789BBB276F3D8A00FF2997 /* Info.plist */,
 				0C789BAA276F3D8800FF2997 /* AppDelegate.swift */,
-				252D961F2787EEC6002C4419 /* Berita.swift */,
-				256DBE432787497700AD9B89 /* BeritaViewController.swift */,
-				0CA9D5C7278B0D10009CD4E5 /* Coin.swift */,
+				256DBE432787497700AD9B89 /* NewsViewController.swift */,
 				0CA9D5C9278B1D3C009CD4E5 /* CustomTableViewCell.swift */,
 				259CF85C2787131E00EC6781 /* DetailCryptoViewController.swift */,
 				0C0D429E27916A5800E4CB59 /* Helper.swift */,
@@ -105,6 +103,8 @@
 		0CC67CD02792E38A00EE172A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				252D961F2787EEC6002C4419 /* News.swift */,
+				0CA9D5C7278B0D10009CD4E5 /* Coin.swift */,
 				0C0D42A02791736F00E4CB59 /* Watchlist+CoreDataClass.swift */,
 				0C0D42A12791736F00E4CB59 /* Watchlist+CoreDataProperties.swift */,
 			);
@@ -187,11 +187,11 @@
 				0C789BAB276F3D8800FF2997 /* AppDelegate.swift in Sources */,
 				E913C0CA278C15A400C0AF78 /* TrendingCollectionViewCell.swift in Sources */,
 				259CF85D2787131E00EC6781 /* DetailCryptoViewController.swift in Sources */,
-				256DBE442787497700AD9B89 /* BeritaViewController.swift in Sources */,
+				256DBE442787497700AD9B89 /* NewsViewController.swift in Sources */,
 				0C0D42A527918AFC00E4CB59 /* WatchlistViewController.swift in Sources */,
 				0C789BAD276F3D8800FF2997 /* SceneDelegate.swift in Sources */,
 				E913C0C8278C00B500C0AF78 /* TrendingTableViewCell.swift in Sources */,
-				252D96202787EEC6002C4419 /* Berita.swift in Sources */,
+				252D96202787EEC6002C4419 /* News.swift in Sources */,
 				0C0D42A22791736F00E4CB59 /* Watchlist+CoreDataClass.swift in Sources */,
 				0CA9D5CA278B1D3C009CD4E5 /* CustomTableViewCell.swift in Sources */,
 				0C0D429F27916A5800E4CB59 /* Helper.swift in Sources */,
