@@ -14,7 +14,5 @@ class TrendingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var trendingSymbol: UILabel!
     @IBOutlet weak var trendingPrice: UILabel!
     @IBOutlet weak var trendingChange: UILabel!
-
-    static let reuseIdentifier = "trendingCollectionViewCell"
     
 }

@@ -18,6 +18,7 @@
 		0C789BB5276F3D8800FF2997 /* Cryptomate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C789BB3276F3D8800FF2997 /* Cryptomate.xcdatamodeld */; };
 		0C789BB7276F3D8A00FF2997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C789BB6276F3D8A00FF2997 /* Assets.xcassets */; };
 		0C789BBA276F3D8A00FF2997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C789BB8276F3D8A00FF2997 /* LaunchScreen.storyboard */; };
+		0C851D862798686800932953 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C851D852798686800932953 /* Temp.swift */; };
 		0CA9D5C8278B0D10009CD4E5 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D5C7278B0D10009CD4E5 /* Coin.swift */; };
 		0CA9D5CA278B1D3C009CD4E5 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9D5C9278B1D3C009CD4E5 /* CustomTableViewCell.swift */; };
 		252D96202787EEC6002C4419 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D961F2787EEC6002C4419 /* News.swift */; };
@@ -41,6 +42,7 @@
 		0C789BB6276F3D8A00FF2997 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C789BB9276F3D8A00FF2997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C789BBB276F3D8A00FF2997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C851D852798686800932953 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		0CA9D5C7278B0D10009CD4E5 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		0CA9D5C9278B1D3C009CD4E5 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		252D961F2787EEC6002C4419 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				E913C0C9278C15A400C0AF78 /* TrendingCollectionViewCell.swift */,
 				E913C0C7278C00B500C0AF78 /* TrendingTableViewCell.swift */,
 				0C0D42A427918AFC00E4CB59 /* WatchlistViewController.swift */,
+				0C851D852798686800932953 /* Temp.swift */,
 				0C789BB6276F3D8A00FF2997 /* Assets.xcassets */,
 				0C789BB3276F3D8800FF2997 /* Cryptomate.xcdatamodeld */,
 				0C789BB8276F3D8A00FF2997 /* LaunchScreen.storyboard */,
@@ -193,6 +196,7 @@
 				E913C0C8278C00B500C0AF78 /* TrendingTableViewCell.swift in Sources */,
 				252D96202787EEC6002C4419 /* News.swift in Sources */,
 				0C0D42A22791736F00E4CB59 /* Watchlist+CoreDataClass.swift in Sources */,
+				0C851D862798686800932953 /* Temp.swift in Sources */,
 				0CA9D5CA278B1D3C009CD4E5 /* CustomTableViewCell.swift in Sources */,
 				0C0D429F27916A5800E4CB59 /* Helper.swift in Sources */,
 				0CA9D5C8278B0D10009CD4E5 /* Coin.swift in Sources */,
