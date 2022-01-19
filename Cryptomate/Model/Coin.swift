@@ -5,7 +5,6 @@
 //  Created by Gregorius Albert on 09/01/22.
 //
 
-import Foundation
 import UIKit
 
 struct Coin {

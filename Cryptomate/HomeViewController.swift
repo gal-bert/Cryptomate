@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         activityIndicator.hidesWhenStopped = true
         
         self.homeTableView.rowHeight = 65
-        self.trendingTableView.rowHeight = 119
+        self.trendingTableView.rowHeight = 120
         
         let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false"
         let url = URL(string: urlString)!
@@ -69,7 +69,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                 }
                             }
                             
-
                         }
                         imageTask.resume()
                     }
@@ -78,11 +77,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     }
                 }
                 catch {
-                    
+                    print(error.localizedDescription)
                 }
             }
             else {
-                print(error!)
+                print(error!.localizedDescription)
             }
         }
         task.resume()
@@ -93,12 +92,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if tableView == homeTableView {
             return arrCoins.count
         }
-        
-        if tableView == trendingTableView {
+        else if tableView == trendingTableView {
             return 1
         }
         
-        return Int()
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,7 +121,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return cell
         }
         
-        if tableView == trendingTableView {
+        else if tableView == trendingTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: "trendingTableViewCell") as! TrendingTableViewCell
             cell.trendingTableViewDelegate = self
             return cell
@@ -137,6 +135,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if tableView == homeTableView {
             temp = arrCoins[indexPath.row].id
             performSegue(withIdentifier: "toDetailSegue", sender: self)
+            homeTableView.reloadData()
         }
                     
     }
@@ -161,7 +160,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         self.activityIndicator.stopAnimating()
                         self.present(Helper.pushAlert(title: "Oops!", message: "Coin not found!"), animated: true, completion: nil)
                     }
-                } else {
+                }
+                else {
                     DispatchQueue.main.async {
                         self.temp = coinId
                         self.activityIndicator.stopAnimating()

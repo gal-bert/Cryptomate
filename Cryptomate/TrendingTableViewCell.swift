@@ -11,7 +11,6 @@ protocol TrendingTableViewDelegate {
     func onClick(id:String)
 }
 
-
 class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var trendingCollectionView: UICollectionView!
@@ -78,9 +77,9 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
                                     self.arrTrendings[row].percentChange = percentChange!
                                     let indexPath = IndexPath(row: row, section: 0)
                                     DispatchQueue.main.async {
-                                        self.trendingCollectionView.reloadItems(at: [indexPath])
+//                                        self.trendingCollectionView.reloadItems(at: [indexPath])
+                                        self.trendingCollectionView.reloadData()
                                     }
-                                    
                                 }
                                 catch {
                                     
@@ -92,16 +91,15 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
                         }
                         task2.resume()
                         
-                        
                         let imageURL = URL(string: coin.imageUrl)!
-
                         let imageTask = session.dataTask(with: imageURL) { data, response, error in
 
                             if error == nil {
                                 self.arrTrendings[row].imageThumb = UIImage(data: data!)
                                 let indexPath = IndexPath(row: row, section: 0)
                                 DispatchQueue.main.async {
-                                    self.trendingCollectionView.reloadItems(at: [indexPath])
+//                                    self.trendingCollectionView.reloadItems(at: [indexPath])
+                                    self.trendingCollectionView.reloadData()
                                 }
                             }
                         }
@@ -121,12 +119,6 @@ class TrendingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColl
         }
         task.resume()
         
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

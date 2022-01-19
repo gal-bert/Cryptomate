@@ -13,12 +13,10 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
-    //TODO: Fix data load often errors
     
     var arrCoins = [Coin]()
     var arrId = [Watchlist]()
-    var temp:String?
+    var selectedCoinId:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +36,10 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
             let coinsResult = try context.fetch(fetchCoins)
             arrId = coinsResult
             arrCoins.removeAll()
+            
+            if arrId.isEmpty {
+                activityIndicator.stopAnimating()
+            }
             
             for wl in arrId {
                 getDataFromAPI(id: wl.coinId!)
@@ -87,27 +89,22 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
                     let row = self.arrCoins.count
                     self.arrCoins.append(coin)
                     
-                    // TODO: Sort logo based on coin title
-//                    if self.arrCoins.count > 0 {
-//                        self.arrCoins.sort {
-//                            $0.name.localizedStandardCompare($1.name) == .orderedAscending
-//                        }
-//                    }
-                    
                     let imageURL = URL(string: imageLarge!)!
 
                     let imageTask = session.dataTask(with: imageURL) { data, response, error in
                         if error == nil {
                             self.arrCoins[row].imageThumb = UIImage(data: data!)
-                            let indexPath = IndexPath(row: row, section: 0)
                             DispatchQueue.main.async {
-                                self.tableView.reloadRows(at: [indexPath], with: .fade)
+                                self.tableView.reloadData()
                             }
                         }
                     }
                     imageTask.resume()
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+//                        self.arrCoins.sort {
+//                            $0.name.localizedStandardCompare($1.name) == .orderedAscending
+//                        }
                     }
                 }
                 catch {
@@ -125,15 +122,10 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! CustomTableViewCell
         activityIndicator.stopAnimating()
         
-        //MARK: Check this out
-//        arrCoins.sort {
-//            $0.name.localizedStandardCompare($1.name) == .orderedAscending
-//        }
-        
         let coin = arrCoins[indexPath.row]
         
-        cell.id.text = coin.symbol.uppercased()
         cell.name.text = coin.name
+        cell.id.text = coin.symbol.uppercased()
         cell.price.text = Helper.formatPrice(price: coin.currentPrice)
         cell.change.textColor = Helper.formatChange(change: coin.percentChange)
         cell.change.text = "\(String(format: "%.2f", coin.percentChange))%"
@@ -147,14 +139,14 @@ class WatchlistViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        temp = arrCoins[indexPath.row].id
-        performSegue(withIdentifier: "toDetailSegue", sender: temp)
+        selectedCoinId = arrCoins[indexPath.row].id
+        performSegue(withIdentifier: "toDetailSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailSegue" {
             let destination = segue.destination as! DetailCryptoViewController
-            destination.coinId = temp
+            destination.coinId = selectedCoinId
         }
     }    
 

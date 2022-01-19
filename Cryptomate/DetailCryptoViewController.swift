@@ -24,9 +24,6 @@ class DetailCryptoViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var coinId:String?
-    
-    //TODO: Add to core data
-    //TODO: Remove from core data
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,7 +130,7 @@ class DetailCryptoViewController: UIViewController {
         let fetchRequest = Watchlist.checkIdExist(coinId: coinId!)
         let result = try! context.fetch(fetchRequest)
         
-        if result.isEmpty { // Not exist, then save
+        if result.isEmpty {
             do{
                 let context = appDelegate.persistentContainer.viewContext
                 let watchlist = Watchlist(context: context)
@@ -148,17 +145,14 @@ class DetailCryptoViewController: UIViewController {
         else {
             let context = appDelegate.persistentContainer.viewContext
             context.delete(result[0])
+            try! context.save()
             saveBarButtonItem.image = heart
         }
-
-        
         
     }
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        
-        // reload data
     }
     
 }

@@ -14,8 +14,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var arrNews = [News]()
     
-    var arrStr = [String]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -23,7 +21,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         activityIndicator.startAnimating()
         
-        // API CALL
         let urlString = "https://newsapi.org/v2/everything?q=crypto&from=2021-12-20&apiKey=c0d5252381e04396bb6a5f49d87bd9e3"
         let url = URL(string: urlString)!
         
@@ -46,18 +43,10 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             urlToImage: i["urlToImage"] as! String,
                             url: i["url"] as! String
                         )
-                        
                         self.arrNews.append(news)
-                        
-//                        if arrNews.count > 0 {
-//                            arrNews.sort {
-//                                $0.title.localizedStandardCompare($1.title) == .orderedAscending
-//                            }
-//                        }
-                        
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
                 } catch {
                     print("Error JSON Serialization")
@@ -73,7 +62,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         
-        
         arrNews.sort {
             $0.title.localizedStandardCompare($1.title) == .orderedAscending
         }
@@ -82,7 +70,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let news = arrNews[indexPath.row]
         
-        // Format date from String
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM, YYYY - HH:MM"
         let isoformat = ISO8601DateFormatter()
@@ -104,6 +91,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         guard let url = URL(string: news.url) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
 
 }
