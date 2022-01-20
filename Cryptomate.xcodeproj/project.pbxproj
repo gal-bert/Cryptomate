@@ -32,6 +32,7 @@
 		0C0D42A02791736F00E4CB59 /* Watchlist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Watchlist+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0C0D42A12791736F00E4CB59 /* Watchlist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Watchlist+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0C0D42A427918AFC00E4CB59 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
+		0C424B9C2798F0370064892C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0C789BA7276F3D8800FF2997 /* Cryptomate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptomate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C789BAA276F3D8800FF2997 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C789BAC276F3D8800FF2997 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		0C789B9E276F3D8800FF2997 = {
 			isa = PBXGroup;
 			children = (
+				0C424B9C2798F0370064892C /* README.md */,
 				0C789BA9276F3D8800FF2997 /* Cryptomate */,
 				0C789BA8276F3D8800FF2997 /* Products */,
 			);
